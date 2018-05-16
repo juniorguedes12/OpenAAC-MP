@@ -29,7 +29,7 @@ int main()
 
     begin = clock();
 
-    #pragma acc kernels copyin(a, b) copy(c)
+    #pragma acc kernels copyin(a,b), copy(c)
     for (i = 0; i < SIZE; i++)
     {
         for (j = 0; j < SIZE; j++)

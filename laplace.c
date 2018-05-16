@@ -21,6 +21,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <openacc.h>
 
 #define NN 1024
 #define NM 1024
@@ -54,12 +55,14 @@ int main(int argc, char **argv)
     begin = clock();
     int iter = 0;
 
+    // acc_set_device_num(0,acc_device_nvidia);
+    //printf("%d",acc_get_num_devices(acc_device_nvidia));
 #pragma acc data copyin(A), copy(Anew)
     while (error > tol && iter < iter_max)
     {
         error = 0.0;
 
-//#pragma omp parallel for shared(m, n, Anew, A)
+        //#pragma omp parallel for shared(m, n, Anew, A)
 #pragma acc kernels
         for (int j = 1; j < n - 1; j++)
         {
@@ -70,7 +73,7 @@ int main(int argc, char **argv)
             }
         }
 
-//#pragma omp parallel for shared(m, n, Anew, A)
+        //#pragma omp parallel for shared(m, n, Anew, A)
 #pragma acc kernels
         for (int j = 1; j < n - 1; j++)
         {
