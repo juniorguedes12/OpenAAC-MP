@@ -20,12 +20,17 @@
 
   7) Adicionar o caminho para a pasta bin do item 3
 
-
 ## Instalação no Linux
-
 não sei
 
 
 ## Execução
 
 gcc -fopeanacc nomedoarquivo.c
+
+
+#### Outras opções
+Caso alguem queira, instalar o compilador [daqui](https://www.pgroup.com/products/community.htm?utm_source=dev_nvidia_oacc&utm_medium=web_link&utm_term=download_button), ele é mais facil de usar, só é maior o download mesmo (mas ele funciona bonitinho, ainda mais pra usuários de Nvidia). 
+#### Para executar ele 
+pgcc -acc -Minfo=accel nomedoarquivo.c
+
