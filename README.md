@@ -1,5 +1,6 @@
 # OpenAAC
 - Para utilização do OpenACC é necessário possuir a versão 7 para cima do gcc.
+- Para verificar: gcc --version
 
 ## Instalação Windows
   
@@ -22,7 +23,7 @@
 
 ## Instalação no Linux
 
-não sei ainda
+não sei
 
 
 ## Execução
